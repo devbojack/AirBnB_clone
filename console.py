@@ -23,7 +23,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb)'
     __clone_classes = [
         "BaseModel",
-        "User"
+        "User",
         "City",
         "Place",
         "Review",
