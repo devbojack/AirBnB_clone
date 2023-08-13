@@ -167,6 +167,12 @@ class HBNBCommand(cmd.Cmd):
                 elif method_name == 'destroy':
                     class_id = splitted[2][1:-1]
                     self.do_destroy(class_name + ' ' + class_id)
+                elif method.name == 'update':
+                    class_id == splitted[2][1:-1]
+                    update_key == splitted[3][1:-1]
+                    update_value == splitted[4][1:-1]
+                    self.do_update(class_name + ' ' + class_id + ' ' + update_key + ' ' + update_value)
+
 
     def get_objects(self, instance=''):
         """Gets the elements created by the console
