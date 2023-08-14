@@ -115,6 +115,7 @@ class HBNBCommand(cmd.Cmd):
         """
         args = shlex.split(line)
         size_args = len(args)
+        objdict = storage.all()
         if size_args == 0:
             print('** class name missing **')
         elif args[0] not in self.__clone_classes:
@@ -123,7 +124,7 @@ class HBNBCommand(cmd.Cmd):
             print('** instance id missing **')
         else:
             key = args[0] + '.' + args[1]
-            instancedata = models.storage.all().get(key)
+            instancedata = storage.all().get(key)
             if instancedata is None:
                 print('** no instance found **')
             elif size_args == 2:
@@ -134,7 +135,7 @@ class HBNBCommand(cmd.Cmd):
                 args[3] = self.value_checker(args[3])
                 setattr(instancedata, args[2], args[3])
                 setattr(instancedata, 'updated_at', datetime.now())
-                models.storage.save()
+                storage.save()
 
     def value_checker(self, value):
         """Value checker
@@ -168,9 +169,10 @@ class HBNBCommand(cmd.Cmd):
                     class_id = splitted[2][1:-1]
                     self.do_destroy(class_name + ' ' + class_id)
                 elif method_name == 'update':
-                    class_id = splitted[2][1:-1]
-                    update_key =  splitted[2][2:-2]
-                    update_value =  splitted[2][3:-3]
+                    n_splitted = splitted[2].split(",")
+                    class_id = n_splitted[0]
+                    update_key = n_splitted[1]
+                    update_value =  n_splitted[2]
                     self.do_update(class_name + ' ' + class_id + ' '\
                             + update_key + ' ' + update_value)
 
