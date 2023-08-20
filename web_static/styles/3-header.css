@@ -3,9 +3,12 @@
  */
 
 header {
-    color: #FFF;
-    height: 70px;
-    width: 100%;
-    border-bottom: 1px solid #CCC;
-    background: $FFF url('.../images/logo.png') 20px center no-repeat;
+    background-color: #FFF;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 70px;
+	width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    background: url('../images/logo.png') 20px center no-repeat;   
 }
