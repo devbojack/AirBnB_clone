@@ -1,0 +1,11 @@
+/*
+ * Header style
+ */
+
+header {
+    color: #FFF;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #CCC;
+    background: $FFF url('.../images/icon.png') 20px center no-repeat;
+}
