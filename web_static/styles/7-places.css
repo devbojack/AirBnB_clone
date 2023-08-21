@@ -5,6 +5,13 @@
 .places {
 }
 
+.center_places {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	width: 100%;
+}
+
 .places h1 {
 	top: 0px;
 	left: 0px;
